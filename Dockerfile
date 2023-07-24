@@ -17,6 +17,8 @@ RUN chsh -s /bin/zsh
 RUN apt-get update && \
     apt-get install -y gcc-9 g++-9 python3 python3-pip pypy3
 
+RUN cp .zhenv ~/.zshrc
+
 # C++でAtCoder Library(ACL)を使えるようにする
 RUN git clone https://github.com/atcoder/ac-library.git /lib/ac-library
 ENV CPLUS_INCLUDE_PATH /lib/ac-library
