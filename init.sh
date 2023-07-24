@@ -1,0 +1,2 @@
+cp .zshenv ~/.zshrc
+zsh
