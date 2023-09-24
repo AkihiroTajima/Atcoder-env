@@ -68,7 +68,23 @@ int main()
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    int n, s;
+    cin >> n >> s;
+
+    vi a(n);
+    REP(i, n) cin >> a[i];
+
+    const int maxs = 10005;
+    const int maxn = 65;
+    vector ok(maxn, vector<bool>(maxs, false));
+    ok[0][0] = true;
+    REP(i, n) REP(j, maxs)  {
+        if (ok[i][j]) ok[i+1][j] = true;
+        if (ok[i][j] and j+a[i] < maxs) ok[i+1][j+a[i]] = true;
+    }
 
 
+    if (ok[n][s]) cout << "Yes" << endl;
+    else cout << "No" << endl;
     return 0;
 }
