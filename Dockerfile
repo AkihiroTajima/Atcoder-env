@@ -15,7 +15,7 @@ RUN chsh -s /bin/zsh
 
 # C++, Python3, PyPy3の3つの環境想定
 RUN apt-get update && \
-    apt-get install -y gcc-9 g++-9 python3 python3-pip pypy3
+    apt-get install -y gcc-12 g++-12 python3 python3-pip pypy3
 
 # C++でAtCoder Library(ACL)を使えるようにする
 RUN git clone https://github.com/atcoder/ac-library.git /lib/ac-library
