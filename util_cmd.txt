@@ -1,0 +1,4 @@
+cp t.cpp f.cpp
+rm -r test
+
+oj test -c ./a.out
