@@ -1,4 +1,17 @@
+cp t.cpp a.cpp
+cp t.cpp b.cpp
+cp t.cpp c.cpp
+cp t.cpp d.cpp
+cp t.cpp e.cpp
 cp t.cpp f.cpp
+
 rm -r test
 
 oj test -c ./a.out
+
+mv a.cpp abc330/a.cpp
+mv b.cpp abc330/b.cpp
+mv c.cpp abc330/c.cpp
+mv d.cpp abc330/d.cpp
+mv e.cpp abc330/e.cpp
+mv f.cpp abc330/f.cpp
