@@ -12,9 +12,9 @@ inline bool chmax(T &a, T b) {if (a < b) {a = b; return true; } return false;}
 
 template<typename T>
 ostream& operator << (ostream& os, vector<T>& vec) {
-    os << "[";
-    for (int i = 0; i<vec.size(); i++) os << vec[i] << (i + 1 == vec.size() ? "" : ", ");
-    os << "]";
+    // os << "[";
+    for (int i = 0; i<vec.size(); i++) os << vec[i] << (i + 1 == vec.size() ? "" : " ");
+    // os << "]";
     return os;
 }
 
@@ -68,7 +68,38 @@ int main()
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    int n;
+    cin >> n;
 
+    vi t(n), x(n);
+    REP(i, n) cin >> t[i] >> x[i];
 
+    map<int, int> cnt;
+    int k_min = 0, k_now = 0;
+    vi ans;
+    RREP(i, n-1) {
+        if (t[i] == 1) {
+            if (cnt[x[i]] > 0) {
+                cnt[x[i]]--;
+                ans.emplace_back(1);
+                k_now--;
+            } else {
+                ans.emplace_back(0);
+            }
+        }
+
+        if (t[i] == 2) {
+            cnt[x[i]]++;
+            k_now++;
+        }
+        k_min = max(k_min, k_now);
+    }
+
+    if (k_now > 0) cout << -1 << endl;
+    else {
+        reverse(ALL(ans));
+        cout << k_min << endl;
+        cout << ans << endl;
+    }
     return 0;
 }
