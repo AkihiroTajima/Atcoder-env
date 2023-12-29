@@ -68,7 +68,24 @@ int main()
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    int n, q;
+    cin >> n >> q;
 
+    vector<ll> r(n), cumsum(n+1);
+    REP(i, n) cin >> r[i];
+    sort(ALL(r));
+    REP(i, n) {
+        cumsum[i+1] = cumsum[i];
+        cumsum[i+1] += r[i];
+    }
+
+    REP(_, q) {
+        ll x;
+        cin >> x;
+        auto itr =  upper_bound(ALL(cumsum), x);
+        ll ans = distance(cumsum.begin(), itr)-1;
+        cout << ans << '\n';
+    }
 
     return 0;
 }

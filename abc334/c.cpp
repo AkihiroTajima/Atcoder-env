@@ -68,7 +68,36 @@ int main()
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    int n, k;
+    cin >> n >> k;
 
+    vi cnt(n, 2);
+    REP(_, k) {
+        int a;
+        cin >> a;
+        a--;
+        cnt[a]--;
+    }
+
+    vi s;
+    REP(i, n) REP(_, cnt[i]) s.emplace_back(i);
+
+    n = s.size();
+    if (n%2 == 0) {
+        int ans = 0;
+        REP(i, n/2) ans += s[i*2+1]-s[i*2];
+        cout << ans << endl;
+    } else {
+        int now = 0;
+        REP(i, n/2) now += s[i*2+2]-s[i*2+1];
+        int ans = now;
+        for (int i = 2; i < n; i += 2) {
+            now += s[i-1]-s[i-2];
+            now -= s[i]-s[i-1];
+            ans = min(ans, now);
+        }
+        cout << ans << endl;
+    }
 
     return 0;
 }
