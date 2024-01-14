@@ -68,7 +68,39 @@ int main()
     cin.tie(0);
     ios::sync_with_stdio(false);
 
+    int n, m, l;
+    cin >> n >> m >> l;
 
+    vi a(n), b(m);
+    vector<pii> ai(n), bi(m);
+    REP(i, n) {
+        cin >> a[i];
+        ai[i] = {a[i], i};
+    }
+    REP(i, m) {
+        cin >> b[i];
+        bi[i] = {b[i], i};
+    }
 
+    set<pii> badc;
+    REP(_, l) {
+        int c, d;
+        cin >> c >> d;
+        c--, d--;
+        badc.emplace(c, d);
+    }
+
+    sort(ALL(ai), greater());
+    sort(ALL(bi), greater());
+
+    int ans = 0;
+    REP(i, n) REP(j, m) {
+        if (badc.count({ai[i].second, bi[j].second}) == 0) {
+            ans = max(ans, ai[i].first+bi[j].first);
+            break;
+        }
+    }
+
+    cout << ans << endl;
     return 0;
 }
