@@ -9,10 +9,9 @@ rm -r test
 
 oj test -c ./a.out
 
-mkdir abc338
-mv a.cpp abc338/a.cpp
-mv b.cpp abc338/b.cpp
-mv c.cpp abc338/c.cpp
-mv d.cpp abc338/d.cpp
-mv e.cpp abc338/e.cpp
-mv f.cpp abc331/f.cpp
+rm a.cpp
+rm b.cpp
+rm c.cpp
+rm d.cpp
+rm e.cpp
+rm f.cpp
