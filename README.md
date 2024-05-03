@@ -9,3 +9,4 @@ Atcoder用のC++実行環境
 
 # 導入
 Clone repository in container volumeでAtcoder-envを選択する
+init.shを実行する
