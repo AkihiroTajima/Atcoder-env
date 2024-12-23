@@ -15,14 +15,15 @@ RUN chsh -s /bin/zsh
 
 # C++, Python3, PyPy3の3つの環境想定
 RUN apt-get update && \
-    apt-get install -y gcc-12 g++-12 python3 python3-pip pypy3
+    apt-get install -y gcc-12 g++-12 python3 python3-pip pipx pypy3
 
 # C++でAtCoder Library(ACL)を使えるようにする
 RUN git clone https://github.com/atcoder/ac-library.git /lib/ac-library
 ENV CPLUS_INCLUDE_PATH /lib/ac-library
 
 # コンテスト補助アプリケーションをインストール
-RUN pip install online-judge-tools --break-system-packages
+RUN pipx ensurepath
+RUN pipx install online-judge-tools
 
 # # AHC用のRustのinstall
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
