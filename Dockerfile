@@ -22,7 +22,7 @@ RUN git clone https://github.com/atcoder/ac-library.git /lib/ac-library
 ENV CPLUS_INCLUDE_PATH /lib/ac-library
 
 # コンテスト補助アプリケーションをインストール
-# RUN pip3 install online-judge-tools
+RUN pip install online-judge-tools --break-system-packages
 
 # # AHC用のRustのinstall
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
