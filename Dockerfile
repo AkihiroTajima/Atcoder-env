@@ -22,7 +22,7 @@ RUN git clone https://github.com/atcoder/ac-library.git /lib/ac-library
 ENV CPLUS_INCLUDE_PATH /lib/ac-library
 
 # コンテスト補助アプリケーションをインストール
-RUN pipx ensurepath
+RUN pipx ensurepath --global
 RUN pipx install online-judge-tools
 
 # # AHC用のRustのinstall
